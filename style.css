@@ -354,3 +354,31 @@ main {
   font-weight: 600;
   margin: 2.5rem 0 1rem;
 }
+
+.post ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0 0 1.25rem;
+}
+
+.post li + li {
+  margin-top: 0.25rem;
+}
+
+.phones.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* PDF pages are transparent, so give them paper */
+.paper img {
+  background: #fff;
+}
+
+/* A sentence that introduces a list sits close to it */
+.post p:has(+ ul) {
+  margin-bottom: 0.5rem;
+}
+
+.phones.one {
+  grid-template-columns: minmax(0, 200px);
+}

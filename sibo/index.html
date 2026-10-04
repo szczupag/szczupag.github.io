@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A food diary for the low FODMAP diet that adds up FODMAP portions across a meal, built with Claude in one evening.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#241a14" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Low FODMAP – szczupag">
+  <meta property="og:description" content="A food diary for the low FODMAP diet that adds up FODMAP portions across a meal, built with Claude in one evening.">
+  <meta property="og:url" content="https://szczupag.com/sibo/">
+  <meta property="og:image" content="https://szczupag.com/sibo/today.png">
+  <meta property="og:type" content="article">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <title>Low FODMAP – szczupag</title>
+</head>
+
+<body>
+  <main>
+    <header class="id">
+      <p class="name"><a href="/">szczupag</a></p>
+      <p class="role">Software Engineer</p>
+    </header>
+
+    <ul class="links" aria-label="Social media links">
+      <li><a href="https://www.linkedin.com/in/agata-szczuka/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/szczupag" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+
+    <article class="content post">
+      <a class="back" href="/">← All projects</a>
+      <p class="post-meta">2026 · Side project</p>
+      <h1>Low FODMAP</h1>
+
+      <p>FODMAPs are short-chain carbohydrates that the gut doesn't always absorb well. The name stands for Fermentable Oligosaccharides, Disaccharides, Monosaccharides And Polyols, and in practice it comes down to six groups. A few examples of foods high in each:</p>
+
+      <ul>
+        <li><strong>Fructose</strong>, when a food has more of it than glucose: honey, apples, mango</li>
+        <li><strong>Lactose</strong>: milk, yoghurt, soft cheeses</li>
+        <li><strong>Fructans</strong>: wheat, onion, garlic</li>
+        <li><strong>GOS</strong> (galacto-oligosaccharides): beans, chickpeas, lentils</li>
+        <li><strong>Sorbitol</strong>: avocado, apricots, blackberries</li>
+        <li><strong>Mannitol</strong>: mushrooms, cauliflower, celery</li>
+      </ul>
+
+      <p>I was advised to follow a low FODMAP diet for a few weeks. To check individual foods, I started with the official FODMAP app from Monash University, where the diet was developed. The app is great: every food in it has been tested in their lab, and it tells you plainly how much of it you can eat.</p>
+
+      <figure>
+        <div class="phones two">
+          <a href="monash-list.jpg"><img src="monash-list.jpg" alt="Monash FODMAP app: a list of vegetables, each with green, amber and red serving sizes in grams." width="920" height="1860"></a>
+          <a href="monash-food.jpg"><img src="monash-food.jpg" alt="Monash FODMAP app: strawberries, with a traffic light for each FODMAP group at a 75 g and a 65 g serving." width="920" height="1860"></a>
+        </div>
+        <figcaption>The Monash University FODMAP app: serving sizes for each food, and a breakdown by FODMAP group.</figcaption>
+      </figure>
+
+      <p>The problem starts when you combine foods. Each one can be fine on its own, but FODMAPs from the same group add up across a meal, and there's no easy way to tell whether, say, some oats and a spoon of peanut butter together go over the limit.</p>
+
+      <p>In the past I used Fitatu every now and then to track calories or protein. Honestly, the only thing missing for me was FODMAP tracking. With that, it would have been perfect.</p>
+
+      <figure>
+        <div class="phones one">
+          <a href="fitatu.jpg"><img src="fitatu.jpg" alt="Fitatu: a day's breakfast with calories, protein, fat and carbs for each product, and daily totals against goals." width="920" height="1880"></a>
+        </div>
+        <figcaption>Fitatu app: calories and macros for each meal, but nothing about FODMAPs.</figcaption>
+      </figure>
+
+      <p>So I decided to build an app for my own needs. I wrote down all my requirements and how I imagined it would work, and with Claude's help the app was ready in one evening. My part was mostly setting up and configuring a VPS to run it on.</p>
+
+      <h2>What it does</h2>
+
+      <p>Every product has its macros and FODMAP limits for each of the six groups. I copy the limits from the Monash app by hand, since they don't offer a public API, but I only have to do it once for each food. For every logged meal, the app adds up the load for each group and labels the meal as safe, caution or avoid, next to calories and macros against my daily goals. The meals themselves I don't type in at all; more on that below.</p>
+
+      <figure>
+        <div class="phones">
+          <a href="today.png"><img src="today.png" alt="Today screen: calories left, protein, fat and carbs, and each meal with a FODMAP label." width="780" height="1688"></a>
+          <a href="calendar.png"><img src="calendar.png" alt="Month calendar with days coloured by how the FODMAP load went, plus monthly stats." width="780" height="1688"></a>
+          <a href="recipes.png"><img src="recipes.png" alt="Recipes grouped into breakfasts and lunches, each with calories and a FODMAP label." width="780" height="1688"></a>
+        </div>
+        <figcaption>Today's meals, a month at a glance, and recipes.</figcaption>
+      </figure>
+
+      <p>The calendar colours each day by how the FODMAP load went and marks whether I hit my calorie and protein goals, with a summary for the whole month. Recipes keep their ingredients and a FODMAP label per serving, can be logged to the diary in one go, and can send their ingredients straight to the shopping list.</p>
+
+      <p>There's also a PDF export. I pick a period and get a report with averages against my goals, a day-by-day overview, which FODMAP groups went over the limit and because of what, and every meal listed with grams. It's useful when I want to show my meals to a dietitian and make sure I'm doing everything right.</p>
+
+      <figure class="paper">
+        <div class="phones two">
+          <a href="report-1.png"><img src="report-1.png" alt="First page of a weekly PDF report: averages against goals, a day-by-day chart and FODMAP groups that went over the limit." width="989" height="1400"></a>
+          <a href="report-2.png"><img src="report-2.png" alt="A page of the report listing one day's meals with grams, calories and macros." width="989" height="1400"></a>
+        </div>
+        <figcaption>A weekly report: the summary page and one of the days.</figcaption>
+      </figure>
+
+      <p>With the free version of Fitatu I had to add every product by hand, every time. To avoid that in my app, I added a Claude connector, since I already have a Claude subscription anyway. Now I just tell Claude what I had for a meal, and it adds it to the app: it finds the products, creates the ones that are missing and logs the right amounts.</p>
+
+      <p>The app is just for my own private use, which is also why its interface is only in Polish.</p>
+
+      <p class="note">Screenshots of my app show made-up demo data, including the FODMAP values.</p>
+    </article>
+  </main>
+</body>
+
+</html>
