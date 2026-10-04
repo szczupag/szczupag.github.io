@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <script>try{if(localStorage.getItem('lang')==='pl')location.replace('/pl'+location.pathname)}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A private, local-first app for medical documents, visits and lab results.">
   <meta name="color-scheme" content="light dark">
@@ -18,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" hreflang="en" href="https://szczupag.com/health/">
+  <link rel="alternate" hreflang="pl" href="https://szczupag.com/pl/health/">
+  <link rel="alternate" hreflang="x-default" href="https://szczupag.com/health/">
   <title>Health – szczupag</title>
 </head>
 
@@ -26,6 +30,10 @@
     <header class="id">
       <p class="name"><a href="/">szczupag</a></p>
       <p class="role">Software Engineer</p>
+      <nav class="lang" aria-label="Language">
+        <span aria-current="page">EN</span>
+        <a href="/pl/health/" hreflang="pl" lang="pl" data-lang="pl">PL</a>
+      </nav>
     </header>
 
     <ul class="links" aria-label="Social media links">
@@ -71,11 +79,12 @@
         <figcaption>One parameter over time, with the reference range shaded.</figcaption>
       </figure>
 
-      <p>There is also an optional analysis of results. It can use the local model as well, or Claude, in which case only de-identified values are sent, and the app shows exactly what will go out before asking for consent. The interface is available in English and Polish.</p>
+      <p>There is also an optional analysis of results. It can use the local model as well, or Claude, in which case only de-identified values are sent, and the app shows exactly what will go out before asking for consent.</p>
 
       <p class="note">Screenshots show made-up demo data.</p>
     </article>
   </main>
+  <script src="/lang.js" defer></script>
 </body>
 
 </html>

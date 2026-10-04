@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dziennik żywieniowy, który pomaga śledzić FODMAP-y w całych posiłkach. Zbudowany z pomocą Claude w jeden wieczór.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#241a14" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Low FODMAP – szczupag">
+  <meta property="og:description" content="Dziennik żywieniowy, który pomaga śledzić FODMAP-y w całych posiłkach. Zbudowany z pomocą Claude w jeden wieczór.">
+  <meta property="og:url" content="https://szczupag.com/pl/sibo/">
+  <meta property="og:image" content="https://szczupag.com/sibo/today.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:type" content="article">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" hreflang="en" href="https://szczupag.com/sibo/">
+  <link rel="alternate" hreflang="pl" href="https://szczupag.com/pl/sibo/">
+  <link rel="alternate" hreflang="x-default" href="https://szczupag.com/sibo/">
+  <title>Low FODMAP – szczupag</title>
+</head>
+
+<body>
+  <main>
+    <header class="id">
+      <p class="name"><a href="/pl/">szczupag</a></p>
+      <p class="role">Software Engineer</p>
+      <nav class="lang" aria-label="Język">
+        <a href="/sibo/" hreflang="en" lang="en" data-lang="en">EN</a>
+        <span aria-current="page">PL</span>
+      </nav>
+    </header>
+
+    <ul class="links" aria-label="Media społecznościowe">
+      <li><a href="https://www.linkedin.com/in/agata-szczuka/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/szczupag" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+
+    <article class="content post">
+      <a class="back" href="/pl/">← Wszystkie projekty</a>
+      <p class="post-meta">2026 · Projekt własny</p>
+      <h1>Low FODMAP</h1>
+
+      <p>FODMAP to krótkołańcuchowe węglowodany, których jelita nie zawsze dobrze wchłaniają. Nazwa to skrót od fermentujących oligosacharydów, disacharydów, monosacharydów i polioli, a w praktyce chodzi o sześć grup. Kilka przykładów produktów bogatych w każdą z nich:</p>
+
+      <ul>
+        <li><strong>Fruktoza</strong>, gdy produkt ma jej więcej niż glukozy: miód, jabłka, mango</li>
+        <li><strong>Laktoza</strong>: mleko, jogurt, miękkie sery</li>
+        <li><strong>Fruktany</strong>: pszenica, cebula, czosnek</li>
+        <li><strong>GOS</strong> (galaktooligosacharydy): fasola, ciecierzyca, soczewica</li>
+        <li><strong>Sorbitol</strong>: awokado, morele, jeżyny</li>
+        <li><strong>Mannitol</strong>: grzyby, kalafior, seler naciowy</li>
+      </ul>
+
+      <p>Dostałam zalecenie, żeby przez kilka tygodni stosować dietę low FODMAP. Do sprawdzania pojedynczych produktów zaczęłam korzystać z oficjalnej aplikacji FODMAP stworzonej przez Uniwersytet Monash w Melbourne, na którym opracowano tę dietę. Aplikacja jest świetna: każdy produkt został przebadany w ich laboratorium, a aplikacja mówi wprost, ile czego można zjeść.</p>
+
+      <figure>
+        <div class="phones two">
+          <a href="/sibo/monash-list.jpg"><img src="/sibo/monash-list.jpg" alt="Aplikacja Monash FODMAP: lista warzyw, każde z zieloną, żółtą i czerwoną porcją w gramach." width="920" height="1860"></a>
+          <a href="/sibo/monash-food.jpg"><img src="/sibo/monash-food.jpg" alt="Aplikacja Monash FODMAP: truskawki z oceną każdej grupy FODMAP dla porcji 75 g i 65 g." width="920" height="1860"></a>
+        </div>
+        <figcaption>Aplikacja FODMAP Uniwersytetu Monash: porcje dla każdego produktu i rozbicie na grupy FODMAP.</figcaption>
+      </figure>
+
+      <p>Problem zaczyna się, kiedy łączysz produkty. Każdy z osobna może być w porządku, ale FODMAP-y z tej samej grupy sumują się w obrębie posiłku i trudno ocenić, czy na przykład płatki owsiane razem z łyżką masła orzechowego nie przekroczą limitu.</p>
+
+      <p>W przeszłości od czasu do czasu korzystałam z Fitatu, żeby śledzić kalorie albo białko. Tak naprawdę brakowało mi w nim tylko jednego: śledzenia FODMAP-ów. Z tym byłoby idealnie.</p>
+
+      <figure>
+        <div class="phones one">
+          <a href="/sibo/fitatu.jpg"><img src="/sibo/fitatu.jpg" alt="Fitatu: śniadanie z kaloriami, białkiem, tłuszczem i węglowodanami dla każdego produktu oraz dzienne sumy na tle celów." width="920" height="1880"></a>
+        </div>
+        <figcaption>Aplikacja Fitatu: kalorie i makro dla każdego posiłku, ale nic o FODMAP-ach.</figcaption>
+      </figure>
+
+      <p>Postanowiłam więc stworzyć aplikację pod własne potrzeby. Rozpisałam wszystkie wymagania i to, jak wyobrażam sobie jej działanie, a z pomocą Claude'a aplikacja była gotowa w jeden wieczór. Z mojej strony musiałam właściwie tylko postawić i skonfigurować VPS, na którym działa.</p>
+
+      <h2>Co potrafi</h2>
+
+      <p>Każdy produkt ma swoje makro i limity FODMAP dla każdej z sześciu grup. Limity przepisuję ręcznie z aplikacji Monash, bo nie udostępniają publicznego API, ale dla każdego produktu robię to tylko raz. Dla każdego zapisanego posiłku aplikacja sumuje obciążenie w każdej grupie i oznacza posiłek jako „bezpieczny”, „ostrożnie” albo „nie łączyć”, obok kalorii i makro na tle moich dziennych celów. Samych posiłków w ogóle nie wpisuję. Więcej o tym niżej.</p>
+
+      <figure>
+        <div class="phones">
+          <a href="/sibo/today.png"><img src="/sibo/today.png" alt="Ekran Dziś: pozostałe kalorie, białko, tłuszcz i węglowodany oraz każdy posiłek z etykietą FODMAP." width="780" height="1688"></a>
+          <a href="/sibo/calendar.png"><img src="/sibo/calendar.png" alt="Kalendarz miesięczny z dniami pokolorowanymi według obciążenia FODMAP i statystykami miesiąca." width="780" height="1688"></a>
+          <a href="/sibo/recipes.png"><img src="/sibo/recipes.png" alt="Przepisy podzielone na śniadania i obiady, każdy z kaloriami i etykietą FODMAP." width="780" height="1688"></a>
+        </div>
+        <figcaption>Dzisiejsze posiłki, miesiąc w skrócie i przepisy.</figcaption>
+      </figure>
+
+      <p>Kalendarz koloruje każdy dzień według obciążenia FODMAP i zaznacza, czy zmieściłam się w celu kalorycznym i białkowym, a pod spodem jest podsumowanie całego miesiąca. Przepisy mają swoje składniki i etykietę FODMAP na porcję. Można je zapisać w dzienniku za jednym razem albo przenieść ich składniki prosto na listę zakupów.</p>
+
+      <p>Jest też eksport do PDF. Wybieram okres i dostaję raport ze średnimi na tle celów, przeglądem dzień po dniu, informacją, które grupy FODMAP przekroczyły limit i przez co, oraz każdym posiłkiem rozpisanym na gramy. Przydaje się, gdy chcę pokazać swój jadłospis dietetykowi i upewnić się, że wszystko robię dobrze.</p>
+
+      <figure class="paper">
+        <div class="phones two">
+          <a href="/sibo/report-1.png"><img src="/sibo/report-1.png" alt="Pierwsza strona tygodniowego raportu PDF: średnie na tle celów, wykres dzień po dniu i grupy FODMAP, które przekroczyły limit." width="989" height="1400"></a>
+          <a href="/sibo/report-2.png"><img src="/sibo/report-2.png" alt="Strona raportu z posiłkami jednego dnia, gramaturą, kaloriami i makro." width="989" height="1400"></a>
+        </div>
+        <figcaption>Raport tygodniowy: strona z podsumowaniem i jeden z dni.</figcaption>
+      </figure>
+
+      <p>W darmowej wersji Fitatu musiałam za każdym razem dodawać każdy produkt ręcznie. Żeby uniknąć tego w mojej aplikacji, dodałam do niej konektor Claude'a, bo i tak mam już subskrypcję. Teraz po prostu opisuję Claude'owi, co zjadłam na dany posiłek, a on dodaje to do aplikacji: wyszukuje produkty, zakłada brakujące i zapisuje odpowiednie ilości.</p>
+
+      <p>Aplikacja jest tylko do mojego prywatnego użytku.</p>
+
+      <p class="note">Zrzuty ekranu mojej aplikacji pokazują wymyślone dane demonstracyjne, łącznie z wartościami FODMAP.</p>
+    </article>
+  </main>
+  <script src="/lang.js" defer></script>
+</body>
+
+</html>

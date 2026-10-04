@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prywatna aplikacja do dokumentacji medycznej, wizyt i wyników badań, działająca lokalnie.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#241a14" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Health – szczupag">
+  <meta property="og:description" content="Prywatna aplikacja do dokumentacji medycznej, wizyt i wyników badań, działająca lokalnie.">
+  <meta property="og:url" content="https://szczupag.com/pl/health/">
+  <meta property="og:image" content="https://szczupag.com/pl/health/dashboard.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:type" content="article">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" hreflang="en" href="https://szczupag.com/health/">
+  <link rel="alternate" hreflang="pl" href="https://szczupag.com/pl/health/">
+  <link rel="alternate" hreflang="x-default" href="https://szczupag.com/health/">
+  <title>Health – szczupag</title>
+</head>
+
+<body>
+  <main>
+    <header class="id">
+      <p class="name"><a href="/pl/">szczupag</a></p>
+      <p class="role">Software Engineer</p>
+      <nav class="lang" aria-label="Język">
+        <a href="/health/" hreflang="en" lang="en" data-lang="en">EN</a>
+        <span aria-current="page">PL</span>
+      </nav>
+    </header>
+
+    <ul class="links" aria-label="Media społecznościowe">
+      <li><a href="https://www.linkedin.com/in/agata-szczuka/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/szczupag" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+
+    <article class="content post">
+      <a class="back" href="/pl/">← Wszystkie projekty</a>
+      <p class="post-meta">2026 · Projekt własny</p>
+      <h1>Health</h1>
+
+      <p>Często chodzę do lekarzy, a utrzymanie porządku w dokumentacji medycznej zawsze było dla mnie wyzwaniem. Przez lata wszystko trzymałam na papierze, w jednym dużym segregatorze z przegródką dla każdej specjalizacji. Po wizycie dokumenty lądowały w odpowiedniej przegródce. Przez jakiś czas to się sprawdzało.</p>
+
+      <p>Potem coraz więcej lekarzy przeszło na platformy online. Zalecenia i wyniki badań zaczęły przychodzić tylko w wersji elektronicznej, więc po każdej wizycie pobierałam je, drukowałam i wkładałam do segregatora. PDF-y trzymałam też w folderze w iCloud, żeby mieć do nich dostęp z każdego urządzenia. Moje własne notatki z wizyt były jeszcze gdzie indziej: w dokumencie Google Docs, również podzielonym na specjalizacje.</p>
+
+      <p>Prawdziwy problem pojawiał się, gdy musiałam znaleźć coś starszego. Dokumenty dotyczące jednej sprawy często były rozrzucone po kilku specjalizacjach, więc przeszukiwałam przegródkę po przegródce. Okazało się, że podział na specjalizacje nie zawsze jest najlepszym sposobem patrzenia na własne zdrowie.</p>
+
+      <p>Dlatego zbudowałam do tego aplikację. Skoro większość dokumentów i tak była już w iCloud, postanowiłam, że aplikacja będzie po prostu interfejsem do tych plików. Dzięki temu nie musiałam budować nowej usługi ani zastanawiać się, jak ją zabezpieczyć. Wszystko zostaje w moim iCloud, gdzie mogę to otworzyć nawet bez aplikacji.</p>
+
+      <h2>Jak to działa</h2>
+
+      <p>Aplikacja trzyma w tym folderze iCloud dwa rodzaje plików. Oryginalne dokumenty są zapisane dokładnie w takiej postaci, w jakiej przyszły, i nigdy nie są zmieniane. Obok nich aplikacja zapisuje małe rekordy, po jednym dla każdego dokumentu, wizyty i badania, z najważniejszymi informacjami: datą, lekarzem, kategorią, tekstem wyciągniętym z dokumentu, a przy badaniach laboratoryjnych także każdą zmierzoną wartością. Wyszukiwanie działa na tych rekordach, a nie na samych PDF-ach, dlatego jest szybkie. Z nich zbudowane jest też wszystko, co widać w aplikacji, od osi czasu po wykresy.</p>
+
+      <p>Tworzenie tych rekordów jest w większości automatyczne. Aplikacja działa lokalnie na moim MacBooku, podobnie jak AI, z którego korzysta. Kiedy dodaję PDF, model językowy uruchomiony na samym laptopie, a nie w chmurze, czyta go, podpowiada datę, lekarza i kategorię, a wartości z badań przenosi do tabeli wyświetlanej obok oryginału, dzięki czemu mogę sprawdzić każdą liczbę przed zapisaniem.</p>
+
+      <figure>
+        <a href="/pl/health/dashboard.png"><img src="/pl/health/dashboard.png" alt="Pulpit z najnowszymi wynikami badań i małymi wykresami trendu oraz ścieżkami leczenia według specjalizacji." width="1600" height="1000"></a>
+        <figcaption>Pulpit: najnowsze wyniki z małymi wykresami trendu i wizyty pogrupowane według specjalizacji.</figcaption>
+      </figure>
+
+      <p>Wizyty nadal są pogrupowane według specjalizacji, jak przegródki w moim starym segregatorze, ale to już nie jedyny sposób, żeby coś znaleźć. Każda wizyta ma swoje zalecenia, moje notatki i linki do powiązanych dokumentów i wyników, więc dokument w Google Docs też przestał być potrzebny. Jedno pole wyszukiwania obejmuje wszystko, łącznie z treścią dokumentów, a oś czasu pokazuje wizyty, wyniki i dokumenty w kolejności dat, z filtrami, kiedy ich potrzebuję.</p>
+
+      <figure>
+        <a href="/pl/health/timeline.png"><img src="/pl/health/timeline.png" alt="Oś czasu z wizytami, badaniami krwi i USG, od najnowszych." width="1600" height="1000"></a>
+        <figcaption>Oś czasu z filtrami: wizyty, wyniki, dokumenty i specjalizacje.</figcaption>
+      </figure>
+
+      <p>Najbardziej aplikacja pomaga przy wynikach badań. Bardzo lubię śledzić swoje parametry w aplikacji Apple Zdrowie na iPhonie i to ona była inspiracją dla tej części: każdy parametr ma własny kafelek z ostatnią wartością i małą linią trendu, a po kliknięciu otwiera się pełny wykres ze wszystkich badań, niezależnie od tego, który lekarz je zlecił. Zalecenia w stylu „powtórzyć badania krwi za 3 miesiące” zamieniają się w małe zadania z terminem, zamiast ginąć gdzieś w PDF-ie.</p>
+
+      <figure>
+        <a href="/pl/health/trend.png"><img src="/pl/health/trend.png" alt="Wykres witaminy D z pięciu pomiarów, rosnący z 18 do 42 ng/ml." width="1600" height="1000"></a>
+        <figcaption>Jeden parametr w czasie, z zaznaczonym zakresem referencyjnym.</figcaption>
+      </figure>
+
+      <p>Jest też opcjonalna analiza wyników. Może korzystać z lokalnego modelu albo z Claude'a. W tym drugim przypadku wysyłane są wyłącznie zanonimizowane wartości, a aplikacja przed prośbą o zgodę pokazuje dokładnie, co zostanie wysłane.</p>
+
+      <p class="note">Zrzuty ekranu pokazują wymyślone dane demonstracyjne.</p>
+    </article>
+  </main>
+  <script src="/lang.js" defer></script>
+</body>
+
+</html>

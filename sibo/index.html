@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <script>try{if(localStorage.getItem('lang')==='pl')location.replace('/pl'+location.pathname)}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A food diary for the low FODMAP diet that adds up FODMAP portions across a meal, built with Claude in one evening.">
   <meta name="color-scheme" content="light dark">
@@ -18,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" hreflang="en" href="https://szczupag.com/sibo/">
+  <link rel="alternate" hreflang="pl" href="https://szczupag.com/pl/sibo/">
+  <link rel="alternate" hreflang="x-default" href="https://szczupag.com/sibo/">
   <title>Low FODMAP – szczupag</title>
 </head>
 
@@ -26,6 +30,10 @@
     <header class="id">
       <p class="name"><a href="/">szczupag</a></p>
       <p class="role">Software Engineer</p>
+      <nav class="lang" aria-label="Language">
+        <span aria-current="page">EN</span>
+        <a href="/pl/sibo/" hreflang="pl" lang="pl" data-lang="pl">PL</a>
+      </nav>
     </header>
 
     <ul class="links" aria-label="Social media links">
@@ -104,6 +112,7 @@
       <p class="note">Screenshots of my app show made-up demo data, including the FODMAP values.</p>
     </article>
   </main>
+  <script src="/lang.js" defer></script>
 </body>
 
 </html>
