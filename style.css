@@ -1,0 +1,354 @@
+:root {
+  --bg: #f5efe6;
+  --ink: #3a271c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #241a14;
+    --ink: #eee3d3;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Figtree', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Desktop: left column (name on top, links at the bottom), projects on the right */
+
+main {
+  max-width: 1000px;
+  min-height: 100svh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "id content"
+    "links content";
+}
+
+.id,
+.links {
+  border-right: 1.5px solid var(--ink);
+  padding: 0 2rem;
+}
+
+.id {
+  grid-area: id;
+  padding-top: clamp(2rem, 8vh, 5rem);
+}
+
+.name {
+  font-family: 'Brygada 1918', Georgia, serif;
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+}
+
+.role {
+  margin: 0.4rem 0 0;
+  opacity: 0.7;
+}
+
+.links {
+  grid-area: links;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  padding-bottom: clamp(2rem, 8vh, 5rem);
+}
+
+.content {
+  grid-area: content;
+  padding: clamp(2rem, 8vh, 5rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.year {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+  margin: 0 0 1.25rem;
+}
+
+.year::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--ink);
+  opacity: 0.5;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 560px;
+}
+
+/* The whole row is the link, so the description is clickable too */
+.project {
+  display: block;
+}
+
+.project:hover {
+  text-decoration: none;
+}
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.project:hover .project-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.project-where {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.project:hover .project-where {
+  opacity: 1;
+}
+
+.project-desc {
+  display: block;
+  margin-top: 0.25rem;
+  opacity: 0.75;
+}
+
+/* Mobile: the same three parts stacked, with links pinned to the bottom */
+
+@media (max-width: 720px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "id"
+      "content"
+      "links";
+  }
+
+  .id,
+  .links {
+    border-right: 0;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .id {
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .name {
+    font-size: 1.75rem;
+  }
+
+  .role {
+    margin-top: 0.25rem;
+  }
+
+  .links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.25rem 1.5rem;
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+  }
+}
+
+/* Posts */
+
+.back {
+  display: inline-block;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-bottom: 2rem;
+}
+
+.back:hover {
+  opacity: 1;
+}
+
+.post {
+  max-width: 640px;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin: 0 0 0.5rem;
+}
+
+.post h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+}
+
+.post p {
+  margin: 0 0 1.25rem;
+}
+
+.post figure {
+  margin: 2.5rem 0;
+}
+
+.post img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+}
+
+.post figcaption {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-top: 0.75rem;
+}
+
+/* Phone screenshots side by side */
+.phones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.post .note {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 720px) {
+  .post h1 {
+    font-size: 1.5rem;
+  }
+
+  .phones {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.name a:hover {
+  text-decoration: none;
+}
+
+
+.year:not(:first-child) {
+  margin-top: 3rem;
+}
+
+/* Keep the name and links in view while a long post scrolls (desktop only) */
+@media (min-width: 721px) {
+  /* The column divider is drawn on main so it stays continuous when the cells don't stretch */
+  main {
+    background: linear-gradient(var(--ink), var(--ink)) 278.5px 0 / 1.5px 100% no-repeat;
+  }
+
+  .id,
+  .links {
+    border-right: 0;
+  }
+
+  .id {
+    position: sticky;
+    top: 0;
+    align-self: start;
+  }
+
+  .links {
+    position: sticky;
+    bottom: 0;
+    align-self: end;
+  }
+}
+
+.post figure a {
+  display: block;
+}
+
+@media (max-width: 720px) {
+  /* Phone screenshots become a row you can swipe through */
+  .phones {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-right: -1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .phones > a {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
+}
+
+.post h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+}

@@ -17,231 +17,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <title>szczupag</title>
-  <style>
-    :root {
-      --bg: #f5efe6;
-      --ink: #3a271c;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #241a14;
-        --ink: #eee3d3;
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Figtree', system-ui, sans-serif;
-      font-size: 17px;
-      line-height: 1.5;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    a:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 3px;
-    }
-
-    /* Desktop: left column (name on top, links at the bottom), projects on the right */
-
-    main {
-      max-width: 1000px;
-      min-height: 100svh;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      grid-template-rows: auto 1fr;
-      grid-template-areas:
-        "id content"
-        "links content";
-    }
-
-    .id,
-    .links {
-      border-right: 1.5px solid var(--ink);
-      padding: 0 2rem;
-    }
-
-    .id {
-      grid-area: id;
-      padding-top: clamp(2rem, 8vh, 5rem);
-    }
-
-    h1 {
-      font-family: 'Brygada 1918', Georgia, serif;
-      font-style: italic;
-      font-size: 2rem;
-      font-weight: 600;
-      line-height: 1;
-      margin: 0;
-    }
-
-    .role {
-      margin: 0.4rem 0 0;
-      opacity: 0.7;
-    }
-
-    .links {
-      grid-area: links;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 0.15rem;
-      padding-bottom: clamp(2rem, 8vh, 5rem);
-    }
-
-    .content {
-      grid-area: content;
-      padding: clamp(2rem, 8vh, 5rem) clamp(1.5rem, 5vw, 4rem);
-    }
-
-    .year {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      font-variant-numeric: tabular-nums;
-      opacity: 0.6;
-      margin: 0 0 1.25rem;
-    }
-
-    .year::after {
-      content: '';
-      flex: 1;
-      border-top: 1px solid var(--ink);
-      opacity: 0.5;
-    }
-
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      max-width: 560px;
-    }
-
-    /* The whole row is the link, so the description is clickable too */
-    .project {
-      display: block;
-    }
-
-    .project:hover {
-      text-decoration: none;
-    }
-
-    .project-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.25rem 1rem;
-    }
-
-    .project-title {
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    .project:hover .project-title {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .project-where {
-      font-size: 0.85rem;
-      opacity: 0.6;
-      white-space: nowrap;
-    }
-
-    .project:hover .project-where {
-      opacity: 1;
-    }
-
-    .project-desc {
-      display: block;
-      margin-top: 0.25rem;
-      opacity: 0.75;
-    }
-
-    /* Mobile: the same three parts stacked, with links pinned to the bottom */
-
-    @media (max-width: 720px) {
-      main {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr auto;
-        grid-template-areas:
-          "id"
-          "content"
-          "links";
-      }
-
-      .id,
-      .links {
-        border-right: 0;
-        padding: 1.25rem 1.5rem;
-      }
-
-      .id {
-        border-bottom: 1.5px solid var(--ink);
-      }
-
-      h1 {
-        font-size: 1.75rem;
-      }
-
-      .role {
-        margin-top: 0.25rem;
-      }
-
-      .links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 0.25rem 1.5rem;
-        border-top: 1.5px solid var(--ink);
-      }
-
-      .content {
-        padding: 2rem 1.5rem;
-      }
-
-      .project-title {
-        font-size: 1.1rem;
-      }
-
-      .project-desc {
-        font-size: 0.95rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
   <main>
     <header class="id">
-      <h1>szczupag</h1>
+      <h1 class="name">szczupag</h1>
       <p class="role">Senior Software Engineer</p>
     </header>
 
@@ -253,6 +35,20 @@
     </ul>
 
     <section class="content" aria-label="Projects">
+      <h2 class="year">2026</h2>
+
+      <ul class="projects">
+        <li>
+          <a class="project" href="/health/">
+            <span class="project-head">
+              <span class="project-title">Health</span>
+              <span class="project-where">Post →</span>
+            </span>
+            <span class="project-desc">A private, local-first app for medical documents, visits and lab results.</span>
+          </a>
+        </li>
+      </ul>
+
       <h2 class="year">2024</h2>
 
       <ul class="projects">

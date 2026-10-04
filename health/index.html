@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A private, local-first app for medical documents, visits and lab results.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#241a14" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Health – szczupag">
+  <meta property="og:description" content="A private, local-first app for medical documents, visits and lab results.">
+  <meta property="og:url" content="https://szczupag.com/health/">
+  <meta property="og:image" content="https://szczupag.com/health/dashboard.png">
+  <meta property="og:type" content="article">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <title>Health – szczupag</title>
+</head>
+
+<body>
+  <main>
+    <header class="id">
+      <p class="name"><a href="/">szczupag</a></p>
+      <p class="role">Senior Software Engineer</p>
+    </header>
+
+    <ul class="links" aria-label="Social media links">
+      <li><a href="https://www.linkedin.com/in/agata-szczuka/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/szczupag" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://twitter.com/szczupag" target="_blank" rel="noopener">X</a></li>
+      <li><a href="https://www.instagram.com/szczupag" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+
+    <article class="content post">
+      <a class="back" href="/">← All projects</a>
+      <p class="post-meta">2026 · Side project</p>
+      <h1>Health</h1>
+
+      <p>I see doctors fairly often, and keeping my medical paperwork in order has always been a bit of a project. For years everything was on paper, in one big binder with a tab for each specialty. After a visit, the papers went behind the right tab. For a while, that worked well.</p>
+
+      <p>Then more and more doctors moved to online platforms. Recommendations and test results started arriving only online, so after each visit I would download them, print them and file them in the binder. I kept the PDFs in an iCloud folder too, so I could open them on any device. My own notes from visits lived somewhere else again: in a Google Doc, also split by specialty.</p>
+
+      <p>The real trouble started when I needed to find something older. Documents related to one question were often spread across several specialties, which meant going through tab after tab. Grouping by specialty, it turned out, isn't always the best way to look at your health.</p>
+
+      <p>So I built an app for it. Since most of the documents were already in iCloud, I decided the app would simply be an interface to those files. That way I didn't have to build a new service or figure out how to secure one. Everything stays in my iCloud, where I can open it even without the app.</p>
+
+      <h2>How it works</h2>
+
+      <p>The app keeps two kinds of files in that iCloud folder. The original documents are stored exactly as they came and are never modified. Next to them, the app writes small records, one for each document, visit and test result, with the details that matter: the date, doctor, category, the text extracted from the document and, for lab tests, every measured value. Searching runs over these records rather than through the PDFs themselves, which is why it's quick, and everything you see in the app, from the timeline to the charts, is built from them.</p>
+
+      <p>Creating those records is mostly automatic. The app runs locally on my MacBook, and so does the AI behind it. When I drop in a PDF, a language model running on the laptop itself, not in the cloud, reads it, suggests the date, doctor and category, and pulls lab values into a table shown next to the original document, so I can check every number before saving.</p>
+
+      <figure>
+        <a href="dashboard.png"><img src="dashboard.png" alt="Dashboard with the latest lab values and small trend lines, and care threads grouped by specialty." width="1600" height="1000"></a>
+        <figcaption>The dashboard: latest results with small trend lines, and visits grouped by specialty.</figcaption>
+      </figure>
+
+      <p>Visits are still grouped by specialty, like the tabs in my old binder, but that's no longer the only way to find things. Each visit keeps its recommendations, my notes and links to the related documents and results, so the Google Doc is gone too. One search box covers everything, including the text of the documents, and a timeline shows visits, results and documents in date order, with filters when I need them.</p>
+
+      <figure>
+        <a href="timeline.png"><img src="timeline.png" alt="Timeline listing visits, blood panels and an ultrasound, newest first." width="1600" height="1000"></a>
+        <figcaption>The timeline, filterable by visits, results, documents and specialty.</figcaption>
+      </figure>
+
+      <p>Lab results are where the app helps the most. I love keeping an eye on my vitals in Apple Health on my iPhone, and that's what inspired this part: every lab parameter gets its own tile with the latest value and a small trend line, and opens into a full chart across all tests, no matter which doctor ordered them. Recommendations like “repeat bloodwork in 3 months” become small to-dos with a due date, instead of a line buried in a PDF.</p>
+
+      <figure>
+        <a href="trend.png"><img src="trend.png" alt="Chart of vitamin D across five readings, rising from 18 to 42 ng/mL." width="1600" height="1000"></a>
+        <figcaption>One parameter over time, with the reference range shaded.</figcaption>
+      </figure>
+
+      <p>There is also an optional analysis of results. It can use the local model as well, or Claude, in which case only de-identified values are sent, and the app shows exactly what will go out before asking for consent. The interface is available in English and Polish.</p>
+
+      <p class="note">Screenshots show made-up demo data.</p>
+    </article>
+  </main>
+</body>
+
+</html>
