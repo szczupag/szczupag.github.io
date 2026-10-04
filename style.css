@@ -59,7 +59,7 @@ main {
 }
 
 .id,
-.links {
+.side-bottom {
   border-right: 1.5px solid var(--ink);
   padding: 0 2rem;
 }
@@ -83,13 +83,19 @@ main {
   opacity: 0.7;
 }
 
-.links {
+/* Bottom of the sidebar: social links, then the language switch */
+.side-bottom {
   grid-area: links;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 0.15rem;
   padding-bottom: clamp(2rem, 8vh, 5rem);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
 .content {
@@ -197,7 +203,13 @@ main {
     margin-top: 0.25rem;
   }
 
+  /* On phones the wrapper steps aside: links stay at the bottom, the switch goes to the corner */
+  .side-bottom {
+    display: contents;
+  }
+
   .links {
+    grid-area: links;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -311,7 +323,7 @@ main {
   }
 
   .id,
-  .links {
+  .side-bottom {
     border-right: 0;
   }
 
@@ -321,7 +333,7 @@ main {
     align-self: start;
   }
 
-  .links {
+  .side-bottom {
     position: sticky;
     bottom: 0;
     align-self: end;
@@ -385,13 +397,27 @@ main {
 
 /* Language switch */
 
+main {
+  position: relative;
+}
+
 .lang {
   display: flex;
   gap: 0.6rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.04em;
+}
+
+@media (max-width: 720px) {
+  /* Phones: top-right corner, level with the name */
+  .lang {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.5rem;
+    margin-top: 0;
+  }
 }
 
 .lang a {
