@@ -60,7 +60,7 @@
 
       <p>The app keeps two kinds of files in that iCloud folder. The original documents are stored exactly as they came and are never modified. Next to them, the app writes small records, one for each document, visit and test result, with the details that matter: the date, doctor, category, the text extracted from the document and, for lab tests, every measured value. Searching runs over these records rather than through the PDFs themselves, which is why it's quick, and everything you see in the app, from the timeline to the charts, is built from them.</p>
 
-      <p>Creating those records is mostly automatic. The app runs locally on my MacBook, and so does the AI behind it. When I drop in a PDF, a language model running on the laptop itself, not in the cloud, reads it, suggests the date, doctor and category, and pulls lab values into a table shown next to the original document, so I can check every number before saving.</p>
+      <p>Creating those records is mostly automatic. The app runs locally on my MacBook, and so does the AI behind it. When I drop in a PDF, a local Ollama model reads it, suggests the date, doctor and category, and pulls lab values into a table shown next to the original document, so I can check every number before saving.</p>
 
       <figure>
         <a href="dashboard.png"><img src="dashboard.png" alt="Dashboard with the latest lab values and small trend lines, and care threads grouped by specialty." width="1600" height="1000"></a>
@@ -81,7 +81,7 @@
         <figcaption>One parameter over time, with the reference range shaded.</figcaption>
       </figure>
 
-      <p>There is also an optional analysis of results. It can use the local model as well, or Claude, in which case only de-identified values are sent, and the app shows exactly what will go out before asking for consent.</p>
+      <p>There is also an optional analysis of results. It can use the local Ollama model as well, or Claude, in which case only de-identified values are sent, and the app shows exactly what will go out before asking for consent.</p>
 
       <p class="note">Screenshots show made-up demo data.</p>
     </article>
