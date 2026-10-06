@@ -1,12 +1,13 @@
 :root {
-  --bg: #f5efe6;
-  --ink: #3a271c;
+  --bg: #f6f1ea;
+  --ink: #4b3b31;
+  --line: color-mix(in srgb, var(--ink) 14%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #241a14;
-    --ink: #eee3d3;
+    --bg: #221c18;
+    --ink: #ece3d8;
   }
 }
 
@@ -60,7 +61,7 @@ main {
 
 .id,
 .side-bottom {
-  border-right: 1.5px solid var(--ink);
+  border-right: 1px solid var(--line);
   padding: 0 2rem;
 }
 
@@ -76,11 +77,6 @@ main {
   font-weight: 600;
   line-height: 1;
   margin: 0;
-}
-
-.role {
-  margin: 0.4rem 0 0;
-  opacity: 0.7;
 }
 
 /* Bottom of the sidebar: social links, then the language switch */
@@ -118,7 +114,7 @@ main {
   content: '';
   flex: 1;
   border-top: 1px solid var(--ink);
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .projects {
@@ -192,15 +188,11 @@ main {
   }
 
   .id {
-    border-bottom: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--line);
   }
 
   .name {
     font-size: 1.75rem;
-  }
-
-  .role {
-    margin-top: 0.25rem;
   }
 
   /* On phones the wrapper steps aside: links stay at the bottom, the switch goes to the corner */
@@ -214,7 +206,7 @@ main {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 0.25rem 1.5rem;
-    border-top: 1.5px solid var(--ink);
+    border-top: 1px solid var(--line);
   }
 
   .content {
@@ -319,7 +311,7 @@ main {
 @media (min-width: 721px) {
   /* The column divider is drawn on main so it stays continuous when the cells don't stretch */
   main {
-    background: linear-gradient(var(--ink), var(--ink)) 278.5px 0 / 1.5px 100% no-repeat;
+    background: linear-gradient(var(--line), var(--line)) 279px 0 / 1px 100% no-repeat;
   }
 
   .id,
